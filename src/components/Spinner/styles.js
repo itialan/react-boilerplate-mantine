@@ -1,0 +1,62 @@
+import { createStyles } from '@mantine/core';
+
+export const useStyles = createStyles((theme, _params, getRef) => ({
+  iplProgressIndicatorAvailable: { opacity: '0' },
+  iplProgressIndicator: {
+    opacity: '0',
+    backgroundColor: '#f5f5f5',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    // opacity: '1',
+    pointerEvents: 'none',
+    WebkitTransition: 'opacity cubic-bezier(.4,0,.2,1) 436ms',
+    MozTransition: 'opacity cubic-bezier(.4,0,.2,1) 436ms',
+    transition: 'opacity cubic-bezier(.4,0,.2,1) 436ms',
+    zIndex: '9999',
+  },
+  inspLogoFrame: {
+    display: 'flex',
+    WebkitFlexDirection: 'column',
+    MozFlexDirection: 'column',
+    flexDirection: 'column',
+    WebkitJustifyContent: 'center',
+    MozJustifyContent: 'center',
+    justifyContent: 'center',
+    WebkitAnimation: 'fadein 436ms',
+    MozAnimation: 'fadein 436ms',
+    animation: 'fadein 436ms',
+    height: '98%',
+  },
+  inspLogoFrameImg: {
+    width: '112px',
+    height: '112px',
+    WebkitAlignSelf: 'center',
+    MozAlignSelf: 'center',
+    alignSelf: 'center',
+    borderRadius: '50%',
+  },
+  iplProgressIndicatorHead: {
+    backgroundColor: '#c6dafc',
+    height: '4px',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  firstIndicator: {
+    WebkitAnimation: 'first-indicator 2s linear infinite',
+    MozAnimation: 'first-indicator 2s linear infinite',
+    animation: 'first-indicator 2s linear infinite',
+  },
+  secondIndicator: {
+    WebkitAnimation: 'second-indicator 2s linear infinite',
+    MozAnimation: 'second-indicator 2s linear infinite',
+    animation: 'second-indicator 2s linear infinite',
+  },
+  iplProgressIndicatorInspLogo: {
+    animation: 'App-logo-spin infinite 20s linear',
+    borderRadius: '50%',
+    WebkitAlignSelf: 'center',
+    MozAlignSelf: 'center',
+    alignSelf: 'center',
+  },
+}));
