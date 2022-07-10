@@ -1,5 +1,4 @@
-import { Button, Group, Skeleton, Table } from '@mantine/core';
-import { showNotification } from '@mantine/notifications';
+import { Box, Button, Drawer, Group, Skeleton, Table } from '@mantine/core';
 import { useState } from 'react';
 import { notification } from '../../helpers/notification';
 
@@ -26,36 +25,53 @@ const Products = () => {
 
   return (
     <>
-      <Group position='center'>
-        <Button
-          variant='outline'
-          onClick={() =>
-            // notification('Success', 'Monitor has been updated successfully')
-            setLoading(!loading)
-          }
+      <Box id='content-area'>
+        <Box>
+          <Group position='center'>
+            <Button
+              variant='outline'
+              onClick={() =>
+                // notification('Success', 'Monitor has been updated successfully')
+                setLoading(!loading)
+              }
+            >
+              Show customized notification
+            </Button>
+            <Skeleton visible={loading} width='fit-content'>
+              <Button
+                variant='outline'
+                onClick={() => notification('Error', 'Deleted')}
+              >
+                Show customized notification
+              </Button>
+            </Skeleton>
+          </Group>
+          <Table>
+            <thead>
+              <tr>
+                <th>Element position</th>
+                <th>Element name</th>
+                <th>Symbol</th>
+                <th>Atomic mass</th>
+              </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+          </Table>
+        </Box>
+        <Drawer
+          opened={true}
+          // onClose={() => setOpened(false)}
+          position='right'
+          title='Register'
+          padding='xl'
+          size='xl'
+          target='#content-area'
+          zIndex={0}
+          withOverlay={false}
         >
-          Show customized notification
-        </Button>
-        <Skeleton visible={loading} width='fit-content'>
-          <Button
-            variant='outline'
-            onClick={() => notification('Error', 'Deleted')}
-          >
-            Show customized notification
-          </Button>
-        </Skeleton>
-      </Group>
-      <Table>
-        <thead>
-          <tr>
-            <th>Element position</th>
-            <th>Element name</th>
-            <th>Symbol</th>
-            <th>Atomic mass</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </Table>
+          {/* Drawer content */}
+        </Drawer>
+      </Box>
     </>
   );
 };

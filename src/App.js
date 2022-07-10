@@ -7,6 +7,8 @@ import { MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { AppProvider } from './context/AppContext';
 import Spinner from './components/Spinner/Spinner';
+import ExchangeRate from './pages/ExchangeRate/ExchangeRate';
+import Filter from './pages/ExchangeRate/Filter';
 
 function App() {
   return (
@@ -20,6 +22,14 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path='/spinner' element={<Spinner />} />
+              <Route
+                path='/exchange'
+                element={
+                  <MainLayout>
+                    <Filter />
+                  </MainLayout>
+                }
+              />
               <Route
                 path='/'
                 element={
